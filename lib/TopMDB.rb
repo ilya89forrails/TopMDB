@@ -3,12 +3,12 @@ require_relative 'TopMDB/scraper.rb'
 require_relative 'TopMDB/tmdb.rb'
 
 
-  filename = "../data/imdb250.json"
+  filename = File.expand_path("data/imdb250.json")
   IMDB = MyMoviesList.from_json(filename) 
 
 
 
-  filename = "../data/tmdb200.json"
+  filename = File.expand_path("data/tmdb200.json")
   TMDB = MyMoviesList.from_json(filename)
 
 

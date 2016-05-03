@@ -1,3 +1,3 @@
 require "TopMDB"
 
-puts TopMDB.TMDB.longest(5)
+puts TMDB.longest(5)
