@@ -1,5 +1,5 @@
 # A sample Gemfile
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
 gem 'nokogiri', '1.6.7.2'
 gem 'rspec', '3.4.0'
