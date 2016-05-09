@@ -2,7 +2,11 @@ require 'themoviedb-api'
 require 'yaml'
 require_relative 'movie.rb'
 
-Tmdb::Api.key(YAML.load_file('../config/tmdb_api_key.yml'))
+if File.file?('../config/tmdb_api_key.yml')
+  Tmdb::Api.key(YAML.load_file('../config/tmdb_api_key.yml'))
+else
+  puts "Warning! TMDB api key not exist! For scraping from TMDB please www.themoviedb.org to get api key and run TopMDB.tmdbkey('YOUR_API_KEY_HERE')"
+end
 
 module Tmdb
   module_function

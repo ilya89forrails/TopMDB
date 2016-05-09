@@ -28,4 +28,8 @@ module TopMDB
       puts 'Wrong db name, try again'
     end
   end
+
+  def tmdbkey (api_key)
+    File.write('../config/tmdb_api_key.yml', api_key)
+  end
 end

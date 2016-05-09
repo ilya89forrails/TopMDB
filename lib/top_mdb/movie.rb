@@ -3,7 +3,7 @@ require 'date'
 require 'ostruct'
 
 class Movie
-  # Class contains information about one movie
+  # Class contains information about one movie 
   def initialize(movie, m_list)
     @m_list = m_list
     @link = movie[:link]
