@@ -6,21 +6,22 @@ require_relative 'movies_list.rb'
 require_relative 'my_movie.rb'
 require_relative 'ratings.rb'
 require_relative 'seen_movies_list.rb'
+module TopMDB
+  class MyMoviesList < MoviesList
+    include Recommendations
 
-class MyMoviesList < MoviesList
-  include Recommendations
+    def initialize(hash)
+      @movies = hash.
+                # collect{|line| OpenStruct.new(line.to_h)}.
+                collect { |film| Movie.new_specific(film, self) }
+    end
 
-  def initialize(hash)
-    @movies = hash.
-              # collect{|line| OpenStruct.new(line.to_h)}.
-              collect { |film| Movie.new_specific(film, self) }
-  end
+    def type_by_name(title)
+      @movies.select { |m| m.title == title.to_s }.collect(&:class).to_s
+    end
 
-  def type_by_name(title)
-    @movies.select { |m| m.title == title.to_s }.collect(&:class).to_s
-  end
-
-  def get_first
-    @movies.first
+    def get_first
+      @movies.first
+    end
   end
 end
